@@ -1,0 +1,47 @@
+package Javafirst;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class UImap {
+
+   // System.setProperty("webdriver.chrome.driver","C:\\chromedriver\\chromedriver.exe");
+    WebDriver driver;
+    protected String xpathtabbutton;
+
+
+    public UImap(){
+        this.xpathtabbutton="//div[@id='items']//a[@role='tablist' and @title='";
+    }
+public Boolean clickontabmenu(WebDriver driver,String tabmenuname){
+        Boolean status=true;
+        try {
+            String xpatha=this.xpathtabbutton+ tabmenuname +"']";
+            WebElement ab=driver.findElement(By.xpath(xpatha));
+            JavascriptExecutor js=(JavascriptExecutor) driver;
+
+            js.executeScript("arguments[0].click();",ab);
+
+          //  driver.findElement(By.xpath("//div[@id='items']//a[@role='tab' and @title='"+ tabmenuname +"']")).click();
+        }
+        catch (Exception e){
+            status=false;
+        }
+        finally {
+            driver.quit();
+        }
+    return status;
+    }
+
+}
+
+
+Main method :
+public class Selenium  {
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+        System.setProperty("webdriver.chrome.driver","C:\\chromedriver\\chromedriver.exe");
+        WebDriver driver=new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://youtube.com");
+        Thread.sleep(3000);
+        UImap ui=new UImap();
+        System.out.println(ui.clickontabmenu(driver,"Subscriptions")+" adios and gracias");
