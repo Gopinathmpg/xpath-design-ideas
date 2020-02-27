@@ -1,0 +1,24 @@
+package Javafirst;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class demopage extends demoUImap{
+    WebDriver driver;
+    public demopage(WebDriver driver){
+        this.driver=driver;
+
+    }
+public boolean entername(String Firstorlastname){
+        try {
+
+
+            driver.findElement(By.xpath(xpathnamebox + Firstorlastname + "']")).sendKeys("Messi");
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+}
+
+}
