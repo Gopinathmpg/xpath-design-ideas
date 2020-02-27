@@ -1,0 +1,10 @@
+package Javafirst;
+
+public class demoUImap {
+    protected String xpathnamebox;
+
+    public demoUImap(){
+
+        this.xpathnamebox="//div[@class='control-group']//input[@name='";
+    }
+}
