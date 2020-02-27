@@ -1,0 +1,26 @@
+package Javafirst;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Mainclaass {
+
+    public static void main(String[] args) throws InterruptedException {
+
+//        Firstprogram q=new Firstprogram();
+//        int total=q.set(3,9).add();
+//        System.out.println(total);
+//        String a="animal";
+//        String b="animal";
+//        System.out.println(a.equalsIgnoreCase(b));
+//        System.out.println(a==b);
+//        String c=new String("animal");
+//        System.out.println(a==c);
+//        System.out.println(a.equals(c));
+        System.setProperty("webdriver.chrome.driver","C:\\chromedriver\\chromedriver.exe");
+
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.toolsqa.com/automation-practice-form/");
+        Thread.sleep(2000);
+demopage page=new demopage(driver);
+System.out.println(page.entername("Last name:"));
